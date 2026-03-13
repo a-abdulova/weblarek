@@ -13,10 +13,7 @@ export class Buyer {
     if (data.phone !== undefined) this.phone = data.phone;
   }
 
-  getData(): IBuyer {
-    if (!this.payment) {
-      throw new Error("Не выбран вид оплаты");
-    }
+  getData() {
     return {
       payment: this.payment,
       address: this.address,
