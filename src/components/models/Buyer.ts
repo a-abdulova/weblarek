@@ -1,7 +1,7 @@
-import { IBuyer, TBuyerErrors, TPayment } from "../../../types";
+import { IBuyer, TBuyerErrors, TPayment } from "../../types";
 
 export class Buyer {
-  private payment: TPayment | "" = "";
+  private payment: TPayment | null = null;
   private address = "";
   private email = "";
   private phone = "";
@@ -14,8 +14,11 @@ export class Buyer {
   }
 
   getData(): IBuyer {
+    if (!this.payment) {
+      throw new Error("Не выбран вид оплаты");
+    }
     return {
-      payment: this.payment as TPayment,
+      payment: this.payment,
       address: this.address,
       email: this.email,
       phone: this.phone,
@@ -23,7 +26,7 @@ export class Buyer {
   }
 
   clear(): void {
-    this.payment = "";
+    this.payment = null;
     this.address = "";
     this.email = "";
     this.phone = "";
