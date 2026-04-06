@@ -43,3 +43,49 @@ export interface IOrderResponse {
 }
 
 export type TBuyerErrors = Partial<Record<keyof IBuyer, string>>;
+
+export interface IHeaderView {
+  counter: number;
+}
+
+export interface IGalleryView {
+  catalog: HTMLElement[];
+}
+
+export interface IModalView {
+  content: HTMLElement;
+}
+
+export interface ICardActions {
+  onClick: () => void;
+}
+
+export interface ICardBasketView {
+  index: number;
+  title: string;
+  price: number | null;
+}
+
+export interface IBasketView {
+  items: HTMLElement[];
+  total: number;
+}
+
+export interface IFormState {
+  valid: boolean;
+  errors: string;
+}
+
+export interface IOrderFormView extends IFormState {
+  payment: TPayment | null;
+  address: string;
+}
+
+export interface IContactsFormView extends IFormState {
+  email: string;
+  phone: string;
+}
+
+export interface ISuccessView {
+  total: number;
+}
