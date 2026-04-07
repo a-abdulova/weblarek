@@ -33,14 +33,7 @@ export class BasketView extends Component<IBasketView> {
   }
 
   set items(items: HTMLElement[]) {
-    if (items.length) {
-      this.listElement.replaceChildren(...items);
-    } else {
-      const emptyMessage = document.createElement("p");
-      emptyMessage.textContent = "Корзина пуста";
-      this.listElement.replaceChildren(emptyMessage);
-    }
-
+    this.listElement.replaceChildren(...items);
     this.buttonElement.disabled = items.length === 0;
   }
 

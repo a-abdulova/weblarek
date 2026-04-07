@@ -37,15 +37,11 @@ export class Modal extends Component<IModalView> {
 
   open(): void {
     this.container.classList.add("modal_active");
-    document.body.style.overflow = "hidden";
-    this.events.emit("modal:open");
   }
 
   close(): void {
     this.container.classList.remove("modal_active");
     this.contentElement.replaceChildren();
-    document.body.style.overflow = "";
-    this.events.emit("modal:close");
   }
 
   render(data: IModalView): HTMLElement {
